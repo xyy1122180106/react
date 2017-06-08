@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/browser.js"></script>
+</head>
+<body>
+<div id="example">
+
+</div>
+<script type="text/babel">
+    var ButtonDom=React.createClass({
+        getInitialState:function(){
+            return{liked:false}
+        },
+        handleClick:function(){
+            this.setState({liked:!this.state.liked})
+        },
+        render:function(){
+            var text = this.state.liked ? 'like' : 'haven\'t liked';
+            return(
+                    <p onClick={this.handleClick}>
+                       you {text}
+                    </p>
+            )
+        }
+    })
+    ReactDOM.render(
+            <ButtonDom />,
+            document.getElementById('example')
+    )
+</script>
+</body>
+</html>
